@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\build",
+    "\\build\\windows",
+    "\\build\\windows\\x64",
+    "\\lib",
+    "\\lib\\modals",
+    "\\lib\\screens"
   ],
+  "SelectedNode": "\\build\\windows\\x64\\project_ecommerce.sln",
   "PreviewInSolutionExplorer": false
 }
