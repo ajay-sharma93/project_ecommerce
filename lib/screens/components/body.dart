@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_ecommerce/constants.dart';
+import 'package:project_ecommerce/modals/product_screen.dart';
+import 'package:project_ecommerce/screens/components/categories.dart';
+import 'package:project_ecommerce/screens/components/items_cart.dart';
+import 'package:project_ecommerce/screens/details/details_screen.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -15,59 +19,35 @@ class Body extends StatelessWidget {
           ),
         ),
         Categories(),
-      ],
-    );
-  }
-}
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+            child: GridView.builder(
+            itemCount:products.length,
+            
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: kDefaultPaddin,
+              crossAxisSpacing: kDefaultPaddin,
+              childAspectRatio: 0.80,
+            ), 
+              itemBuilder: (context, index) => ItemCard(
+                key: ValueKey(products[index]), // ✅ Fix: add key here
+                product: products[index],
+                press: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        DetailsScreen(product: products[index], key: null,),
 
-class Categories extends StatefulWidget {
-  const Categories({super.key});
-
-  @override
-  State<Categories> createState() => _CategoriesState();
-}
-
-class _CategoriesState extends State<Categories> {
-  List<String> categories = ["Hand bag","Jewellery","Footwear","Dresses"];
-
-  int selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 25,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (context, index) => buildCategory(index),
-      ),
-    );
-  }
-
-  Widget buildCategory(int index){
-    return GestureDetector(
-      onTap: (){
-        setState(() {
-          selectedIndex = index;
-        });
-      },
-      child: Padding(padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(categories[index],
-          style: TextStyle(fontWeight:FontWeight.bold,color: kTextColor,),
           ),
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.only(top: kDefaultPaddin/7),
-              height:3,
-              width: 30,
-              color:selectedIndex==index? Colors.black:Colors.transparent,
+            ),
+        ),
             ),
           ),
-        ],
-      ),
-      ),
-    );
+    )
+    ]);
   }
 }
+
+
