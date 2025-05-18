@@ -5,6 +5,7 @@ import 'package:project_ecommerce/modals/product_screen.dart';
 class ItemCard extends StatelessWidget {
   final  Product product;
   final VoidCallback press;
+  
   const ItemCard({
     super.key, required this.product, required this.press,
   });

@@ -50,7 +50,7 @@ List<Product> products = [
     size: 2,
     description: "best quality back pack for all",
     image: "assets/9.png",
-    color: Color.fromARGB(255, 145, 145, 144),
+    color: Color.fromARGB(255, 39, 235, 190),
   ),
   Product(
     id: 5,
