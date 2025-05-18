@@ -23,7 +23,7 @@ List<Product> products = [
     size: 2,
     description: "premium quality bag at resonable price",
     image: "assets/bag.png",
-    color: Color.fromARGB(255, 247, 219, 126),
+    color: Color.fromARGB(150, 166, 165, 162),
   ),
   Product(
     id: 2,
@@ -59,7 +59,7 @@ List<Product> products = [
     size: 2,
     description: "helloText",
     image: "assets/8.png",
-    color: Color.fromARGB(255, 154, 136, 2),
+    color: Color.fromARGB(255, 75, 75, 74),
   ),
   Product(
     id: 6,
@@ -68,6 +68,6 @@ List<Product> products = [
     size: 2,
     description: "helloText",
     image: "assets/5.png",
-    color: Color.fromARGB(255, 145, 145, 144),
+    color: Color.fromARGB(255, 131, 131, 130),
   ),
 ];
