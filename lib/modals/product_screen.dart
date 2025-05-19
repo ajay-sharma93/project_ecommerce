@@ -23,7 +23,7 @@ List<Product> products = [
     size: 2,
     description: "premium quality bag at resonable price",
     image: "assets/bag.png",
-    color: Color.fromARGB(150, 166, 165, 162),
+    color: Color(0xFF356C95),
   ),
   Product(
     id: 2,

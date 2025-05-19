@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/modals/product_screen.dart';
 import 'package:project_ecommerce/screens/details/components/product_title_with_image.dart';
 
@@ -17,19 +18,90 @@ class Body extends StatelessWidget {
             children: [
               Container(          
                 margin: EdgeInsets.only(top: size.height*0.3),
-                height: 500,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(topLeft:  Radius.circular(24),topRight: Radius.circular(24)),
-                  color: Colors.white,
+                padding: EdgeInsets.only(
+                  top: size.height*0.12,
+                  left: kDefaultPaddin,
+                  right: kDefaultPaddin,
                 ),
+                // height: 500,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft:  Radius.circular(24),
+                    topRight: Radius.circular(24),
+                    ),               
+                ),
+               child: Column(
+                children: [
+                  Row(
+                    
+                    children: [
+                      Column(
+                        children: [
+                          Text("Color"),
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: kDefaultPaddin/4,
+                              right: kDefaultPaddin/2,
+                            ),
+                            padding: EdgeInsets.all(2.5),
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Color(0xFF356C95),
+                                ),
+                                ),
+                                child: DecoratedBox(decoration: 
+                                BoxDecoration(color: Color(0xFF356C95),
+                                shape: BoxShape.circle,
+                                ),
+                                ),
+                          )
+                        ],
+                      ),                     
+                    ],
+                  ),
+                ],
+               ),
+               
               ),
               ProductTitleWithImage(product: product),
             ],
           ),
-          )
+          ),
         ],
       ),
     );
+  }
+}
+
+class ColorDot extends StatelessWidget {
+  final Color color;
+  final bool isSelected = false;
+  const ColorDot({
+    super.key, required this.color, required isSelected, 
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: kDefaultPaddin/4,
+      right: kDefaultPaddin/2,
+      
+      ),
+      padding: EdgeInsets.all(2.5),
+      height: 20,
+      width: 20,
+      decoration: BoxDecoration(
+        shape:BoxShape.rectangle,
+        border:Border.all(
+          color:isSelected?color:Colors.transparent,
+      ),
+      ),
+      child: DecoratedBox(decoration: BoxDecoration(color:color ,shape: BoxShape.rectangle)),
+      );
   }
 }
 
