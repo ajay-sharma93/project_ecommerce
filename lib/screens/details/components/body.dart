@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/modals/product_screen.dart';
+import 'package:project_ecommerce/screens/details/components/color_and_size.dart';
 import 'package:project_ecommerce/screens/details/components/product_title_with_image.dart';
 
 class Body extends StatelessWidget {
@@ -33,22 +34,10 @@ class Body extends StatelessWidget {
                 ),
                child: Column(
                 children: [
-                  Row(   
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Color"),
-                         Row(children: [
-                         ColorDot( color:Color(0xFF356C95),isSelected: true,
-                         ),
-                         ColorDot( color:Color(0xFF356C95)),
-                         ColorDot( color:Color(0xFF356C95)),
-                         ],
-                         ),
-                        ],
-                      ),                     
-                    ],
+                  ColorAndSize(product: product),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical:kDefaultPaddin),
+                    child: Text(product.description,style: TextStyle(height: 1.5),),
                   ),
                 ],
                ),              
@@ -60,41 +49,6 @@ class Body extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class ColorDot extends StatelessWidget {
-  final Color color;
-  final bool isSelected;
-  const ColorDot({
-     super.key,
-    required this.color,
-    this.isSelected =false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: kDefaultPaddin/4,
-      right: kDefaultPaddin/2,
-      
-      ),
-      padding: EdgeInsets.all(2.5),
-      height: 20,
-      width: 20,
-      decoration: BoxDecoration(
-        shape:BoxShape.circle,
-        border:Border.all(
-          color:isSelected?color:Colors.transparent,
-      ),
-      ),
-      child: DecoratedBox(
-      decoration:BoxDecoration(
-      color:color,
-      shape: BoxShape.circle,
-      ),
-      ),
-      );
   }
 }
 
