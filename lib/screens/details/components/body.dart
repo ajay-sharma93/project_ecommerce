@@ -33,44 +33,30 @@ class Body extends StatelessWidget {
                 ),
                child: Column(
                 children: [
-                  Row(
-                    
+                  Row(   
                     children: [
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text("Color"),
-                          Container(
-                            margin: EdgeInsets.only(
-                              top: kDefaultPaddin/4,
-                              right: kDefaultPaddin/2,
-                            ),
-                            padding: EdgeInsets.all(2.5),
-                            height: 20,
-                            width: 20,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Color(0xFF356C95),
-                                ),
-                                ),
-                                child: DecoratedBox(decoration: 
-                                BoxDecoration(color: Color(0xFF356C95),
-                                shape: BoxShape.circle,
-                                ),
-                                ),
-                          )
+                         Row(children: [
+                         ColorDot( color:Color(0xFF356C95),isSelected: true,
+                         ),
+                         ColorDot( color:Color(0xFF356C95)),
+                         ColorDot( color:Color(0xFF356C95)),
+                         ],
+                         ),
                         ],
                       ),                     
                     ],
                   ),
                 ],
-               ),
-               
+               ),              
               ),
               ProductTitleWithImage(product: product),
             ],
           ),
-          ),
+          )
         ],
       ),
     );
@@ -79,9 +65,11 @@ class Body extends StatelessWidget {
 
 class ColorDot extends StatelessWidget {
   final Color color;
-  final bool isSelected = false;
+  final bool isSelected;
   const ColorDot({
-    super.key, required this.color, required isSelected, 
+     super.key,
+    required this.color,
+    this.isSelected =false,
   });
 
   @override
@@ -95,12 +83,17 @@ class ColorDot extends StatelessWidget {
       height: 20,
       width: 20,
       decoration: BoxDecoration(
-        shape:BoxShape.rectangle,
+        shape:BoxShape.circle,
         border:Border.all(
           color:isSelected?color:Colors.transparent,
       ),
       ),
-      child: DecoratedBox(decoration: BoxDecoration(color:color ,shape: BoxShape.rectangle)),
+      child: DecoratedBox(
+      decoration:BoxDecoration(
+      color:color,
+      shape: BoxShape.circle,
+      ),
+      ),
       );
   }
 }
