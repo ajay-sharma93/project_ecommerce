@@ -29,7 +29,6 @@ class ProductTitleWithImage extends StatelessWidget {
               TextSpan(text: "\$${product.price}",
               style: 
               Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.black,fontWeight: FontWeight.bold),
-    
               ),
             ],
             ),

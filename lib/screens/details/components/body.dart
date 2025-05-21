@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/modals/product_screen.dart';
 import 'package:project_ecommerce/screens/details/components/color_and_size.dart';
+import 'package:project_ecommerce/screens/details/components/description.dart';
 import 'package:project_ecommerce/screens/details/components/product_title_with_image.dart';
 
 class Body extends StatelessWidget {
@@ -35,10 +36,7 @@ class Body extends StatelessWidget {
                child: Column(
                 children: [
                   ColorAndSize(product: product),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical:kDefaultPaddin),
-                    child: Text(product.description,style: TextStyle(height: 1.5),),
-                  ),
+                  Description(product: product),
                 ],
                ),              
               ),
@@ -51,4 +49,5 @@ class Body extends StatelessWidget {
     );
   }
 }
+
 
