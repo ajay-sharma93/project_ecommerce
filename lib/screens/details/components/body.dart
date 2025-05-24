@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/modals/product_screen.dart';
+import 'package:project_ecommerce/screens/details/components/add_to_cart_screen.dart';
 // ignore: unused_import
 import 'package:project_ecommerce/screens/details/components/cart_counter.dart';
 import 'package:project_ecommerce/screens/details/components/color_and_size.dart';
@@ -42,39 +43,7 @@ class Body extends StatelessWidget {
                     ColorAndSize(product: product),
                     Description(product: product),
                     CounterWithFavButton(),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
-                      child: Row(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(right: kDefaultPaddin),
-                            height: 45,
-                            width: 58,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: product.color),
-                            ),
-                            child: IconButton(onPressed: (){}, icon: Icon(Icons.add_shopping_cart_sharp),
-
-                            ),
-                          ),
-                          
-                            Expanded(
-                              child: SizedBox(
-                                height: 45,
-                                child: ElevatedButton(
-                                
-                                onPressed: (){},
-                                child: Text("Buy Now".toUpperCase(),
-                                style: TextStyle(
-                                  color: product.color,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),)),
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
+                    AddToCart(product: product),
                   ],
                 ),             
               ),
@@ -87,6 +56,8 @@ class Body extends StatelessWidget {
     );
   }
 }
+
+
 
 
 
