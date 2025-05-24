@@ -34,13 +34,29 @@ class Body extends StatelessWidget {
                     topRight: Radius.circular(24),
                     ),               
                 ),
-               child: Column(
-                children: [
-                  ColorAndSize(product: product),
-                  Description(product: product),
-                  CartCounter(),
-                ],
-               ),              
+
+                child: Column(
+                  children: [
+                    ColorAndSize(product: product),
+                    Description(product: product),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                      CartCounter(),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        height: 36,
+                        width: 36,
+                        decoration: BoxDecoration(color: Color(0xFFFF6464),
+                        shape: BoxShape.circle,
+
+                        ),
+                        child: Icon(Icons.favorite,color: Colors.white,),
+                      ),
+                      ],
+                    )
+                  ],
+                ),             
               ),
               ProductTitleWithImage(product: product),
             ],
